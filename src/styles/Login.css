@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;600;700;800&display=swap');
+
+/* المتغيرات */
+:root {
+  --primary-color: #0052CC;
+  --secondary-color: #003DA5;
+  --accent-color: #0066FF;
+  --text-dark: #0B1D3F;
+  --text-light: #FFFFFF;
+  --border-color: #E0E8F0;
+  --error-color: #DC2626;
+  --success-color: #10B981;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Almarai', 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  background: linear-gradient(135deg, #F0F5FF 0%, #E0EBFF 100%);
+}
+
+/* حاوية تسجيل الدخول الرئيسية */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* القسم الأيسر - الصورة */
+.login-image-section {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skewX(-5deg);
+  margin-left: -30px;
+}
+
+.image-overlay {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transform: skewX(5deg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.image-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: slideInRight 0.8s ease-out;
+  font-family: 'Cairo', 'Almarai', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.image-subtitle {
+  font-size: 1.3rem;
+  color: #E0F0FF;
+  font-weight: 300;
+  letter-spacing: 1px;
+  animation: slideInRight 0.8s ease-out 0.2s both;
+  font-family: 'Cairo', 'Almarai', sans-serif;
+}
+
+/* العناصر العائمة */
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.element {
+  position: absolute;
+  border: 2px solid #0066FF;
+  animation: float 6s ease-in-out infinite;
+}
+
+.element-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  right: 10%;
+  border-radius: 50%;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.element-3 {
+  width: 120px;
+  height: 60px;
+  top: 50%;
+  right: 20%;
+  transform: rotate(45deg);
+  animation-delay: 2s;
+}
+
+/* القسم الأيمن - النموذج */
+.login-form-section {
+  flex: 1;
+  background: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 420px;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* حاوية الشعار */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.logo {
+  filter: drop-shadow(0 4px 8px rgba(44, 62, 80, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.company-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Cairo', 'Almarai', sans-serif;
+}
+
+/* رأس النموذج */
+.form-header {
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.form-header h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  font-family: 'Cairo', 'Almarai', sans-serif;
+}
+
+.form-header p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+/* نموذج تسجيل الدخول */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* مجموعة النموذج */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: right;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+.form-input {
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  direction: rtl;
+  text-align: right;
+  background-color: #F9FAFB;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--text-light);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input.input-error {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: var(--error-color);
+  text-align: right;
+}
+
+/* التذكر وهل نسيت */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.remember-me:hover {
+  color: var(--secondary-color);
+}
+
+.remember-me input[type='checkbox'] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--secondary-color);
+}
+
+.forgot-password {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+.forgot-password:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* زر التسجيل */
+.submit-button {
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-light);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 82, 204, 0.3);
+  text-transform: none;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* رابط إنشاء حساب */
+.signup-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.signup-link p {
+  line-height: 1.6;
+}
+
+.signup-text {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+.signup-text:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* الرسوم المتحركة */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* الاستجابة للأجهزة الصغيرة */
+@media (max-width: 1024px) {
+  .login-image-section {
+    flex: 0.8;
+  }
+
+  .image-title {
+    font-size: 2.5rem;
+  }
+
+  .image-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-image-section {
+    flex: 0.4;
+    transform: skewX(0);
+    margin-left: 0;
+  }
+
+  .image-overlay {
+    transform: skewX(0);
+  }
+
+  .image-title {
+    font-size: 2rem;
+  }
+
+  .image-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .login-form-section {
+    flex: 0.6;
+    padding: 1rem;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+  }
+
+  .form-header h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-section {
+    padding: 1rem 0.5rem;
+  }
+
+  .form-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .image-title {
+    font-size: 1.5rem;
+  }
+
+  .form-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .company-name {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Droid+Kufi:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+  --primary-color: #0070B9;
+  --secondary-color: #1d1160;
+  --accent-color: #E88C4D;
+  --text-dark: #333333;
+  --text-light: #FFFFFF;
+  --border-color: #D3D3D3;
+  --bg-light: #F5F5F5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Droid Kufi', 'Almarai', 'Cairo', sans-serif;
+  direction: rtl;
+  background: var(--bg-light);
+}
+
+/* الحاوية الرئيسية */
+.modern-login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: white;
+}
+
+/* ===== القسم الأيسر - نموذج التسجيل ===== */
+.modern-login-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: white;
+  overflow-y: auto;
+}
+
+.form-content {
+  width: 100%;
+  max-width: 450px;
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* قسم الشعار */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary-color), #003DA5);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 112, 185, 0.2);
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.company-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* عنوان النموذج */
+.form-title {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+/* النموذج الحديث */
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* مجموعة النموذج */
+.form-group {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: 'Droid Kufi', sans-serif;
+  color: var(--text-dark);
+  background: white;
+  direction: rtl;
+  text-align: right;
+  transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 112, 185, 0.1);
+  background-color: #F9FAFF;
+}
+
+.modern-input::placeholder {
+  color: transparent;
+}
+
+/* التسميات العائمة */
+.modern-label {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modern-input:focus ~ .modern-label,
+.modern-input:not(:placeholder-shown) ~ .modern-label {
+  top: -1.2rem;
+  right: 0;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* مجموعة كلمة المرور */
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+  color: var(--secondary-color);
+}
+
+/* زر الدخول */
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--primary-color), #0056a8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 112, 185, 0.2);
+  font-family: 'Droid Kufi', sans-serif;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 112, 185, 0.3);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* الروابط السفلية */
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  gap: 1rem;
+}
+
+.link-register,
+.link-forgot {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.link-register:hover,
+.link-forgot:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* القائمة الإضافية */
+.additional-links {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.additional-links li a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-right: 1rem;
+}
+
+.additional-links li a::before {
+  content: '‹';
+  position: absolute;
+  right: 0;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.additional-links li a:hover {
+  color: var(--primary-color);
+}
+
+/* روابط التطبيقات */
+.app-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-direction: row-reverse;
+}
+
+.app-badge {
+  flex: 1;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.app-badge:hover {
+  border-color: var(--primary-color);
+  background: rgba(0, 112, 185, 0.05);
+}
+
+/* ===== القسم الأيمن - الصورة الخلفية ===== */
+.modern-login-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #0056a8 50%, #003DA5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.image-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* شعار الجوازات */
+.logo-section-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.passport-logo {
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* الدوائر الزخرفية */
+.decorative-circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.circle {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  right: -50px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 1s;
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  top: 40%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.circle-4 {
+  width: 180px;
+  height: 180px;
+  bottom: -40px;
+  right: 5%;
+  animation-delay: 1.5s;
+}
+
+/* شعار السلطة */
+.authority-logo {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  text-align: center;
+  z-index: 20;
+}
+
+.authority-text {
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ===== الرسوم المتحركة ===== */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ===== الاستجابية ===== */
+@media (max-width: 1200px) {
+  .modern-login-container {
+    flex-direction: column-reverse;
+  }
+
+  .modern-login-form,
+  .modern-login-image {
+    flex: 1;
+    height: 50vh;
+  }
+
+  .form-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-login-form {
+    padding: 1rem;
+  }
+
+  .form-content {
+    max-width: 100%;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .logo-section {
+    margin-bottom: 1rem;
+  }
+
+  .form-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .link-register,
+  .link-forgot {
+    width: 100%;
+  }
+
+  .app-links {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-login-container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .modern-login-form,
+  .modern-login-image {
+    height: auto;
+    min-height: 50vh;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+
+  .company-title {
+    font-size: 1.2rem;
+  }
+
+  .modern-input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .circle {
+    display: none;
+  }
+}
