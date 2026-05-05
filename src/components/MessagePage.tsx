@@ -111,7 +111,7 @@ const MessagePage: React.FC<MessagePageProps> = ({ onBack }) => {
                 مرحبا،
                 لاستكمال إجراءات التفويض الخاص بكم في منصة متم، يرجى الدخول على الرابط التالي:    
                   <a
-                    href="http://localhost:3000?page=nafathv2&token=ZtgbLLwEN1ViNqeu"
+                    href="https://khalshehri.github.io/motim-demo?page=nafathv2&token=ZtgbLLwEN1ViNqeu"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -120,7 +120,7 @@ const MessagePage: React.FC<MessagePageProps> = ({ onBack }) => {
                       fontWeight: '500'
                     }}
                   >
-                    http://localhost:3000?page=nafathv2,token=ZtgbLLwEN1ViNqeu
+                    https://khalshehri.github.io/motim-demo?page=nafathv2,token=ZtgbLLwEN1ViNqeu
                   </a>
                   {' '}تنتهي صلاحية الرابط خلال 30 دقيقة
                 </p>

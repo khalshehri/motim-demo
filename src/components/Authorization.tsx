@@ -144,7 +144,7 @@ const Authorization: React.FC<AuthorizationProps> = ({ onBack }) => {
                 <div className="message-bubble">
                   <p>مرحبا،<br/>
                   لاستكمال إجراءات التفويض الخاص بكم في منصة متم، يرجى الدخول على الرابط التالي:<br/>
-                  localhost:3000/page?nafathev2<br/>
+                  https://khalshehri.github.io/motim-demo?page=nafathv2<br/>
                   تنتهي صلاحية الرابط خلال 30 دقيقة.<br/>
                   منصة متم</p>
                   <span className="message-time">14:32</span>

@@ -99,7 +99,7 @@ const NafathPageV2: React.FC<NafathPageV2Props> = ({ onBack }) => {
   useEffect(() => {
     if (status === 'WAITING') {
       const timer = setTimeout(() => {
-        window.location.href = 'http://localhost:3000?page=nafath-delegation-review';
+        window.location.href = 'https://khalshehri.github.io/motim-demo?page=nafath-delegation-review';
       }, 5000);
 
       return () => clearTimeout(timer);

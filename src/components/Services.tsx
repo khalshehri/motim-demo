@@ -113,7 +113,7 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick }) => {
             <nav className="header-nav">
               <button
                 onClick={() => {
-                  const newWindow = window.open('http://localhost:3000/?page=message', 'messages', 'width=450,height=900');
+                  const newWindow = window.open('https://khalshehri.github.io/motim-demo?page=message', 'messages', 'width=450,height=900');
                   if (newWindow) {
                     newWindow.focus();
                   }
