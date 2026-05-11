@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/motim-demo/static/css/main.34ea030f.css",
-    "main.js": "/motim-demo/static/js/main.ba8b3d01.js",
+    "main.css": "/motim-demo/static/css/main.5c4c3c95.css",
+    "main.js": "/motim-demo/static/js/main.c655ea10.js",
     "static/js/453.8fd77751.chunk.js": "/motim-demo/static/js/453.8fd77751.chunk.js",
     "index.html": "/motim-demo/index.html",
-    "main.34ea030f.css.map": "/motim-demo/static/css/main.34ea030f.css.map",
-    "main.ba8b3d01.js.map": "/motim-demo/static/js/main.ba8b3d01.js.map",
+    "main.5c4c3c95.css.map": "/motim-demo/static/css/main.5c4c3c95.css.map",
+    "main.c655ea10.js.map": "/motim-demo/static/js/main.c655ea10.js.map",
     "453.8fd77751.chunk.js.map": "/motim-demo/static/js/453.8fd77751.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34ea030f.css",
-    "static/js/main.ba8b3d01.js"
+    "static/css/main.5c4c3c95.css",
+    "static/js/main.c655ea10.js"
   ]
 }
