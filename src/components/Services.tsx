@@ -11,6 +11,7 @@ interface Service {
 interface ServicesProps {
   onLogout: () => void;
   onServiceClick?: (serviceId: number) => void;
+  loginMethod?: 'default' | 'nafath';
 }
 
 const ServiceIcon = ({ type }: { type: number }) => {
@@ -49,10 +50,16 @@ const ServiceIcon = ({ type }: { type: number }) => {
   return icons[type as keyof typeof icons] || icons[1];
 };
 
-const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick }) => {
+const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMethod = 'default' }) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const services: Service[] = [
+  const allServices: Service[] = [
+    {
+      id: 7,
+      name: 'تفويضاتي',
+      icon: <ServiceIcon type={2} />,
+      description: 'عرض وإدارة جميع التفويضات الممنوحة لك',
+    },
     {
       id: 1,
       name: 'إدارة العقود',
@@ -90,6 +97,10 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick }) => {
       description: 'خدمات شاملة لإدارة الموارد البشرية والتطوير',
     },
   ];
+
+  const services = loginMethod === 'nafath'
+    ? allServices.filter(s => s.id === 7)
+    : allServices.filter(s => s.id !== 7);
 
   return (
     <div className="services-page">

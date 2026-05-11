@@ -12,9 +12,10 @@ interface LoginFormData {
 
 interface LoginProps {
   onLogin: () => void;
+  onNafathSuccess: () => void;
 }
 
-const Login: React.FC<LoginProps> = ({ onLogin }) => {
+const Login: React.FC<LoginProps> = ({ onLogin, onNafathSuccess }) => {
   const [formData, setFormData] = useState<LoginFormData>({ email: '', password: '' });
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -33,10 +34,10 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       }, 1000);
     }
     if (loginMode === 'nafath-waiting' && countdown === 0) {
-      onLogin();
+      onNafathSuccess();
     }
     return () => clearInterval(interval);
-  }, [loginMode, countdown, onLogin]);
+  }, [loginMode, countdown, onNafathSuccess]);
 
   const validateForm = (): boolean => {
     const newErrors: { email?: string; password?: string } = {};

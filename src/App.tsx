@@ -16,12 +16,20 @@ function App() {
   const initialPage: AppPage = pageParam === 'message' ? 'message' : pageParam === 'nafath' ? 'nafath' : pageParam === 'nafathv2' ? 'nafathv2' : pageParam === 'nafath-delegation-review' ? 'nafath-delegation-review' : 'login';
 
   const [currentPage, setCurrentPage] = useState<AppPage>(initialPage);
+  const [loginMethod, setLoginMethod] = useState<'default' | 'nafath'>('default');
 
   const handleLogin = () => {
+    setLoginMethod('default');
+    setCurrentPage('services');
+  };
+
+  const handleNafathSuccess = () => {
+    setLoginMethod('nafath');
     setCurrentPage('services');
   };
 
   const handleLogout = () => {
+    setLoginMethod('default');
     setCurrentPage('login');
   };
 
@@ -40,9 +48,9 @@ function App() {
     <div className="App">
       {currentPage === 'message' && <MessagePage onBack={() => window.close()} />}
       {currentPage === 'services' && (
-        <Services onLogout={handleLogout} onServiceClick={handleServiceClick} />
+        <Services onLogout={handleLogout} onServiceClick={handleServiceClick} loginMethod={loginMethod} />
       )}
-      {currentPage === 'login' && <Login onLogin={handleLogin} />}
+      {currentPage === 'login' && <Login onLogin={handleLogin} onNafathSuccess={handleNafathSuccess} />}
       {currentPage === 'authorization' && <Authorization onBack={handleBackToServices} />}
       {currentPage === 'nafath' && <NafathPage onBack={handleBackToServices} />}
       {currentPage === 'nafathv2' && <NafathPageV2 onBack={handleBackToServices} />}
