@@ -8,7 +8,7 @@ import NafathPage from './components/NafathPage';
 import NafathPageV2 from './components/NafathPageV2';
 import NafathDelegationReview from './components/NafathDelegationReview';
 
-type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review' | 'nafath-login';
+type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review';
 
 function App() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -42,8 +42,7 @@ function App() {
       {currentPage === 'services' && (
         <Services onLogout={handleLogout} onServiceClick={handleServiceClick} />
       )}
-      {currentPage === 'login' && <Login onLogin={handleLogin} onNafathLogin={() => setCurrentPage('nafath-login')} />}
-      {currentPage === 'nafath-login' && <NafathPageV2 onBack={() => setCurrentPage('login')} onSuccess={handleLogin} />}
+      {currentPage === 'login' && <Login onLogin={handleLogin} />}
       {currentPage === 'authorization' && <Authorization onBack={handleBackToServices} />}
       {currentPage === 'nafath' && <NafathPage onBack={handleBackToServices} />}
       {currentPage === 'nafathv2' && <NafathPageV2 onBack={handleBackToServices} />}
