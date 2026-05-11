@@ -320,6 +320,57 @@ body {
   cursor: not-allowed;
 }
 
+/* فاصل */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.divider-text {
+  font-size: 0.85rem;
+  color: #999;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+/* زر نفاذ */
+.nafath-button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid #1B8354;
+  border-radius: 8px;
+  background-color: #1B8354;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(27, 131, 84, 0.25);
+}
+
+.nafath-button:hover {
+  background-color: #156b44;
+  border-color: #156b44;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27, 131, 84, 0.35);
+}
+
+.nafath-button:active {
+  transform: translateY(0);
+}
+
 /* رابط إنشاء حساب */
 .signup-link {
   margin-top: 1.5rem;
