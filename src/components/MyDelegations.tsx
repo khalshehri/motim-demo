@@ -3,7 +3,8 @@ import '../styles/MyDelegations.css';
 
 interface Delegation {
   id: number;
-  issuedBy: string;
+  establishment: string;
+  commercialReg: string;
   startDate: string;
   endDate: string;
   permissions: string[];
@@ -17,7 +18,8 @@ interface MyDelegationsProps {
 const delegations: Delegation[] = [
   {
     id: 1,
-    issuedBy: 'شركة الأعمال المتقدمة',
+    establishment: 'شركة الأعمال المتقدمة',
+    commercialReg: '1010123456',
     startDate: '2024-01-01',
     endDate: '2025-01-01',
     permissions: ['إدارة العقود', 'إصدار الشهادات', 'التوقيع الإلكتروني'],
@@ -25,7 +27,8 @@ const delegations: Delegation[] = [
   },
   {
     id: 2,
-    issuedBy: 'مؤسسة النور التجارية',
+    establishment: 'مؤسسة النور التجارية',
+    commercialReg: '4030789123',
     startDate: '2023-06-15',
     endDate: '2024-06-15',
     permissions: ['إدارة الفواتير', 'استلام المدفوعات'],
@@ -33,11 +36,30 @@ const delegations: Delegation[] = [
   },
   {
     id: 3,
-    issuedBy: 'شركة الخليج للاستشارات',
+    establishment: 'شركة الخليج للاستشارات',
+    commercialReg: '2050456789',
     startDate: '2024-03-01',
     endDate: '2025-03-01',
     permissions: ['تمثيل الشركة', 'إدارة الموظفين', 'الموافقة على العروض'],
     status: 'active',
+  },
+  {
+    id: 4,
+    establishment: 'مجموعة الرياض التجارية',
+    commercialReg: '1030654321',
+    startDate: '2024-05-01',
+    endDate: '2025-05-01',
+    permissions: ['إبرام العقود', 'التفاوض مع الموردين'],
+    status: 'active',
+  },
+  {
+    id: 5,
+    establishment: 'شركة البناء والتطوير',
+    commercialReg: '3010987654',
+    startDate: '2023-01-10',
+    endDate: '2024-01-10',
+    permissions: ['استلام المشاريع', 'الإشراف الميداني', 'التوقيع على المحاضر'],
+    status: 'expired',
   },
 ];
 
@@ -88,11 +110,17 @@ const MyDelegations: React.FC<MyDelegationsProps> = ({ onBack }) => {
                 <div className="delegation-card-header">
                   <div className="delegation-issuer">
                     <div className="issuer-avatar">
-                      {d.issuedBy.charAt(0)}
+                      {d.establishment.charAt(0)}
                     </div>
                     <div className="issuer-info">
-                      <span className="issuer-label">صادر من</span>
-                      <span className="issuer-name">{d.issuedBy}</span>
+                      <span className="issuer-label">المنشأة</span>
+                      <span className="issuer-name">{d.establishment}</span>
+                      <span className="issuer-reg">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M9 12h6M9 16h6M7 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2M9 4a2 2 0 002 2h2a2 2 0 002-2M9 4a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        سجل تجاري: {d.commercialReg}
+                      </span>
                     </div>
                   </div>
                   <div className="delegation-status-badge">

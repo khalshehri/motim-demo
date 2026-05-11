@@ -4,9 +4,11 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 100vh;
   background: #FAFBFC;
   font-family: 'Almarai', sans-serif;
   direction: rtl;
+  overflow-y: auto;
 }
 
 /* Header */
@@ -181,6 +183,17 @@
   font-size: 1rem;
   font-weight: 700;
   color: #0F172A;
+}
+
+.issuer-reg {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: #64748B;
+  font-weight: 500;
+  direction: ltr;
+  text-align: right;
 }
 
 .delegation-status-badge {
