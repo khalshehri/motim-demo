@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Services.css';
+import { delegations } from '../data/delegations';
 
 interface Service {
   id: number;
@@ -11,6 +12,7 @@ interface Service {
 interface ServicesProps {
   onLogout: () => void;
   onServiceClick?: (serviceId: number) => void;
+  loginMethod?: 'default' | 'nafath';
 }
 
 const ServiceIcon = ({ type }: { type: number }) => {
@@ -49,10 +51,41 @@ const ServiceIcon = ({ type }: { type: number }) => {
   return icons[type as keyof typeof icons] || icons[1];
 };
 
-const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick }) => {
+const permissionCardMap: Record<string, { description: string; iconType: number }> = {
+  'تجديد إقامة':        { description: 'تجديد إقامة العمال وتحديث بياناتهم الرسمية', iconType: 4 },
+  'تسجيل عامل جديد':   { description: 'استقدام وتسجيل عمالة جديدة في المنشأة', iconType: 3 },
+  'نقل خدمات العامل':  { description: 'نقل خدمات العمال بين المنشآت والكفلاء', iconType: 6 },
+  'إصدار تصاريح العمل':{ description: 'إصدار وتجديد تصاريح العمل للموظفين', iconType: 1 },
+  'إبرام العقود':       { description: 'إبرام وتوقيع العقود نيابةً عن المنشأة', iconType: 1 },
+  'الموافقة على العروض':{ description: 'مراجعة والموافقة على العروض التجارية', iconType: 4 },
+};
+
+const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMethod = 'default' }) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const services: Service[] = [
+  const activePermissions = loginMethod === 'nafath'
+    ? Array.from(new Set(
+        delegations
+          .filter(d => d.status === 'active')
+          .flatMap(d => d.permissions)
+          .filter(p => permissionCardMap[p])
+      ))
+    : [];
+
+  const permissionServices: Service[] = activePermissions.map((perm, i) => ({
+    id: 100 + i,
+    name: perm,
+    icon: <ServiceIcon type={permissionCardMap[perm].iconType} />,
+    description: permissionCardMap[perm].description,
+  }));
+
+  const allServices: Service[] = [
+    {
+      id: 7,
+      name: 'تفويضاتي',
+      icon: <ServiceIcon type={2} />,
+      description: 'عرض وإدارة جميع التفويضات الممنوحة لك',
+    },
     {
       id: 1,
       name: 'إدارة العقود',
@@ -90,6 +123,10 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick }) => {
       description: 'خدمات شاملة لإدارة الموارد البشرية والتطوير',
     },
   ];
+
+  const services = loginMethod === 'nafath'
+    ? [allServices.find(s => s.id === 7)!, ...permissionServices]
+    : allServices.filter(s => s.id !== 7);
 
   return (
     <div className="services-page">

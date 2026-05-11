@@ -5,9 +5,10 @@ type NafathStatus = 'INPUT' | 'WAITING' | 'REJECTED' | 'EXPIRED' | 'ERROR' | 'ID
 
 interface NafathPageV2Props {
   onBack?: () => void;
+  onSuccess?: () => void;
 }
 
-const NafathPageV2: React.FC<NafathPageV2Props> = ({ onBack }) => {
+const NafathPageV2: React.FC<NafathPageV2Props> = ({ onBack, onSuccess }) => {
   const [status, setStatus] = useState<NafathStatus>('INPUT');
   const [nationalId, setNationalId] = useState('');
   const [nationalIdError, setNationalIdError] = useState('');
@@ -99,12 +100,16 @@ const NafathPageV2: React.FC<NafathPageV2Props> = ({ onBack }) => {
   useEffect(() => {
     if (status === 'WAITING') {
       const timer = setTimeout(() => {
-        window.location.href = 'https://khalshehri.github.io/motim-demo?page=nafath-delegation-review';
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          window.location.href = 'https://khalshehri.github.io/motim-demo?page=nafath-delegation-review';
+        }
       }, 5000);
 
       return () => clearTimeout(timer);
     }
-  }, [status]);
+  }, [status, onSuccess]);
 
   const validateNationalId = (id: string): boolean => {
     if (!id) {

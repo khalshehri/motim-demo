@@ -320,6 +320,143 @@ body {
   cursor: not-allowed;
 }
 
+/* فاصل */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.divider-text {
+  font-size: 0.85rem;
+  color: #999;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+}
+
+/* زر نفاذ */
+.nafath-button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid #1B8354;
+  border-radius: 8px;
+  background-color: #1B8354;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(27, 131, 84, 0.25);
+}
+
+.nafath-button:hover {
+  background-color: #156b44;
+  border-color: #156b44;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27, 131, 84, 0.35);
+}
+
+.nafath-button:active {
+  transform: translateY(0);
+}
+
+/* نموذج نفاذ */
+.nafath-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.back-link {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  font-family: 'Almarai', 'Cairo', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+/* انتظار نفاذ */
+.nafath-waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.nafath-waiting-icon {
+  width: 72px;
+  height: 72px;
+  background: #f0faf5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nafath-waiting-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  font-family: 'Cairo', 'Almarai', sans-serif;
+  margin: 0;
+}
+
+.nafath-waiting-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+
+.nafath-code {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #1B8354;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.nafath-timer {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.nafath-timer-bar {
+  height: 100%;
+  background: #1B8354;
+  border-radius: 99px;
+  transition: width 1s linear;
+}
+
+.nafath-timer-text {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
 /* رابط إنشاء حساب */
 .signup-link {
   margin-top: 1.5rem;

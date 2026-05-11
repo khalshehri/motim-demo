@@ -7,8 +7,9 @@ import MessagePage from './components/MessagePage';
 import NafathPage from './components/NafathPage';
 import NafathPageV2 from './components/NafathPageV2';
 import NafathDelegationReview from './components/NafathDelegationReview';
+import MyDelegations from './components/MyDelegations';
 
-type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review';
+type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review' | 'my-delegations';
 
 function App() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,19 +17,28 @@ function App() {
   const initialPage: AppPage = pageParam === 'message' ? 'message' : pageParam === 'nafath' ? 'nafath' : pageParam === 'nafathv2' ? 'nafathv2' : pageParam === 'nafath-delegation-review' ? 'nafath-delegation-review' : 'login';
 
   const [currentPage, setCurrentPage] = useState<AppPage>(initialPage);
+  const [loginMethod, setLoginMethod] = useState<'default' | 'nafath'>('default');
 
   const handleLogin = () => {
+    setLoginMethod('default');
+    setCurrentPage('services');
+  };
+
+  const handleNafathSuccess = () => {
+    setLoginMethod('nafath');
     setCurrentPage('services');
   };
 
   const handleLogout = () => {
+    setLoginMethod('default');
     setCurrentPage('login');
   };
 
   const handleServiceClick = (serviceId: number) => {
     if (serviceId === 2) {
-      // خدمة "إضافة تفويض"
       setCurrentPage('authorization');
+    } else if (serviceId === 7) {
+      setCurrentPage('my-delegations');
     }
   };
 
@@ -40,13 +50,14 @@ function App() {
     <div className="App">
       {currentPage === 'message' && <MessagePage onBack={() => window.close()} />}
       {currentPage === 'services' && (
-        <Services onLogout={handleLogout} onServiceClick={handleServiceClick} />
+        <Services onLogout={handleLogout} onServiceClick={handleServiceClick} loginMethod={loginMethod} />
       )}
-      {currentPage === 'login' && <Login onLogin={handleLogin} />}
+      {currentPage === 'login' && <Login onLogin={handleLogin} onNafathSuccess={handleNafathSuccess} />}
       {currentPage === 'authorization' && <Authorization onBack={handleBackToServices} />}
       {currentPage === 'nafath' && <NafathPage onBack={handleBackToServices} />}
       {currentPage === 'nafathv2' && <NafathPageV2 onBack={handleBackToServices} />}
       {currentPage === 'nafath-delegation-review' && <NafathDelegationReview onBack={handleBackToServices} />}
+      {currentPage === 'my-delegations' && <MyDelegations onBack={handleBackToServices} />}
     </div>
   );
 }

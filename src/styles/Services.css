@@ -201,6 +201,11 @@
   margin-bottom: 2rem;
 }
 
+.single-card-grid {
+  grid-template-columns: minmax(300px, 400px) !important;
+  justify-content: center;
+}
+
 /* البطاقة */
 .service-card {
   background: white;
