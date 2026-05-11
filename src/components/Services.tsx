@@ -174,7 +174,7 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMeth
           </div>
 
           {/* شبكة الخدمات */}
-          <div className="services-grid">
+          <div className={`services-grid ${loginMethod === 'nafath' ? 'single-card-grid' : ''}`}>
             {services.map((service) => (
               <div
                 key={service.id}
