@@ -116,12 +116,25 @@ const RequestDelegation: React.FC<RequestDelegationProps> = ({ onBack }) => {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <h2 className="success-title">تم إرسال طلب التفويض</h2>
+              <h2 className="success-title">شكراً لاستخدامكم منصة الاعمال</h2>
               <p className="success-subtitle">
-                سيتم مراجعة الطلب والتواصل معك عبر منصة <b>متم</b> لتأكيد الطلب
+                ستصل رسالة لك من منصة <b>متم</b> لتأكيد إضافة التفويض وإتمام عملية الدفع
               </p>
               <div className="success-buttons">
-                <button onClick={onBack} className="success-btn secondary">الصفحة الرئيسية</button>
+                <button
+                  onClick={() => {
+                    const newWindow = window.open('', 'messages', 'width=450,height=900');
+                    if (newWindow) {
+                      newWindow.location.href = window.location.href + '?page=message';
+                    }
+                  }}
+                  className="success-btn"
+                >
+                  عرض الرسالة
+                </button>
+                <button onClick={onBack} className="success-btn secondary">
+                  الصفحة الرئيسية
+                </button>
               </div>
             </div>
           </div>
