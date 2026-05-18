@@ -225,7 +225,7 @@ const NafathDelegationReview: React.FC<NafathDelegationReviewProps> = ({ onBack 
                   <div className="card-body">
                     <div className="success-msg">
                       <div className="success-icon">
-                        <img src="/successLogo.png" alt="Success" width="80" height="75" />
+                        <img src="/motim-demo/successLogo.png" alt="Success" width="80" height="75" />
                       </div>
                       <h2 className="success-title">تم إنشاء طلب تفويض بنجاح</h2>
                     </div>
