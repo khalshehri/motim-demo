@@ -136,7 +136,7 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMeth
   ];
 
   const services = loginMethod === 'nafath'
-    ? [allServices.find(s => s.id === 7)!, allServices.find(s => s.id === 8)!, ...permissionServices]
+    ? [allServices.find(s => s.id === 8)!, ...permissionServices]
     : allServices.filter(s => s.id !== 7 && s.id !== 8);
 
   return (
