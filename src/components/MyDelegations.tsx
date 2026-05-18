@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/MyDelegations.css';
-import { delegations, Delegation } from '../data/delegations';
+import { delegations } from '../data/delegations';
 
 interface MyDelegationsProps {
   onBack: () => void;
@@ -20,47 +20,6 @@ const ChamberLogo: React.FC = () => (
   </div>
 );
 
-/* Ministry/Authority badge with icon */
-const OrgBadge: React.FC<{ d: Delegation }> = ({ d }) => {
-  const icons: Record<string, React.ReactNode> = {
-    hrsd: (
-      /* Person + hands icon – HR ministry */
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="7" r="4" />
-        <path d="M4 21v-2a8 8 0 0116 0v2" strokeLinecap="round" />
-      </svg>
-    ),
-    zatca: (
-      /* Receipt / zakat icon */
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="4" y="2" width="16" height="20" rx="2" />
-        <path d="M9 7h6M9 11h6M9 15h4" strokeLinecap="round" />
-      </svg>
-    ),
-    commerce: (
-      /* Briefcase / trade icon */
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-        <path d="M12 12v3M10 13.5h4" strokeLinecap="round" />
-      </svg>
-    ),
-    sagia: (
-      /* Rising chart – investment */
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <polyline points="3,17 9,11 13,15 21,7" strokeLinecap="round" strokeLinejoin="round" />
-        <polyline points="17,7 21,7 21,11" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  };
-
-  return (
-    <div className="org-logo org-logo--badge" style={{ '--badge-color': d.orgColor } as React.CSSProperties}>
-      <div className="org-badge-icon">{icons[d.orgType]}</div>
-      <span className="org-badge-abbr">{d.orgAbbr}</span>
-    </div>
-  );
-};
 
 const CardLogoSection: React.FC = () => (
   <div className="card-logo-section">
