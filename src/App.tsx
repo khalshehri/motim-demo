@@ -8,8 +8,9 @@ import NafathPage from './components/NafathPage';
 import NafathPageV2 from './components/NafathPageV2';
 import NafathDelegationReview from './components/NafathDelegationReview';
 import MyDelegations from './components/MyDelegations';
+import RequestDelegation from './components/RequestDelegation';
 
-type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review' | 'my-delegations';
+type AppPage = 'login' | 'services' | 'authorization' | 'message' | 'nafath' | 'nafathv2' | 'nafath-delegation-review' | 'my-delegations' | 'request-delegation';
 
 function App() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -39,6 +40,8 @@ function App() {
       setCurrentPage('authorization');
     } else if (serviceId === 7) {
       setCurrentPage('my-delegations');
+    } else if (serviceId === 8) {
+      setCurrentPage('request-delegation');
     }
   };
 
@@ -58,6 +61,7 @@ function App() {
       {currentPage === 'nafathv2' && <NafathPageV2 onBack={handleBackToServices} />}
       {currentPage === 'nafath-delegation-review' && <NafathDelegationReview onBack={handleBackToServices} />}
       {currentPage === 'my-delegations' && <MyDelegations onBack={handleBackToServices} />}
+      {currentPage === 'request-delegation' && <RequestDelegation onBack={handleBackToServices} />}
     </div>
   );
 }

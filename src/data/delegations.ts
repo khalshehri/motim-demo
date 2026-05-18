@@ -1,57 +1,71 @@
+export type OrgType = 'motim' | 'hrsd' | 'zatca' | 'commerce' | 'sagia';
+
 export interface Delegation {
   id: number;
-  establishment: string;
+  grantingAuthority: string;
   commercialReg: string;
-  startDate: string;
-  endDate: string;
+  issueDate: string;
   permissions: string[];
   status: 'active' | 'expired';
+  orgType: OrgType;
+  orgColor: string;
+  orgAbbr: string;
 }
 
 export const delegations: Delegation[] = [
   {
     id: 1,
-    establishment: 'شركة الأعمال المتقدمة',
+    grantingAuthority: 'متم | اتحاد الغرف',
     commercialReg: '1010123456',
-    startDate: '2024-01-01',
-    endDate: '2025-01-01',
+    issueDate: '15-06-2023',
     permissions: ['تجديد إقامة', 'تسجيل عامل جديد'],
     status: 'active',
+    orgType: 'motim',
+    orgColor: '#007374',
+    orgAbbr: 'متم',
   },
   {
     id: 2,
-    establishment: 'مؤسسة النور التجارية',
-    commercialReg: '4030789123',
-    startDate: '2023-06-15',
-    endDate: '2024-06-15',
+    grantingAuthority: 'متم | اتحاد الغرف',
+    commercialReg: '1010123456',
+    issueDate: '10-01-2023',
     permissions: ['إدارة الفواتير', 'استلام المدفوعات'],
     status: 'expired',
+    orgType: 'hrsd',
+    orgColor: '#1a4fa0',
+    orgAbbr: 'موارد',
   },
   {
     id: 3,
-    establishment: 'شركة الخليج للاستشارات',
-    commercialReg: '2050456789',
-    startDate: '2024-03-01',
-    endDate: '2025-03-01',
+    grantingAuthority: 'متم | اتحاد الغرف',
+    commercialReg: '1010123456',
+    issueDate: '01-03-2024',
     permissions: ['نقل خدمات العامل', 'إصدار تصاريح العمل'],
     status: 'active',
+    orgType: 'zatca',
+    orgColor: '#059669',
+    orgAbbr: 'زاتكا',
   },
   {
     id: 4,
-    establishment: 'مجموعة الرياض التجارية',
-    commercialReg: '1030654321',
-    startDate: '2024-05-01',
-    endDate: '2025-05-01',
+    grantingAuthority: 'متم | اتحاد الغرف',
+    commercialReg: '1010123456',
+    issueDate: '01-05-2024',
     permissions: ['إبرام العقود', 'الموافقة على العروض'],
     status: 'active',
+    orgType: 'commerce',
+    orgColor: '#7c3aed',
+    orgAbbr: 'تجارة',
   },
   {
     id: 5,
-    establishment: 'شركة البناء والتطوير',
-    commercialReg: '3010987654',
-    startDate: '2023-01-10',
-    endDate: '2024-01-10',
+    grantingAuthority: 'متم | اتحاد الغرف',
+    commercialReg: '1010123456',
+    issueDate: '10-01-2023',
     permissions: ['استلام المشاريع', 'الإشراف الميداني', 'التوقيع على المحاضر'],
     status: 'expired',
+    orgType: 'sagia',
+    orgColor: '#b45309',
+    orgAbbr: 'استثمار',
   },
 ];

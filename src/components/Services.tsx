@@ -82,9 +82,20 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMeth
   const allServices: Service[] = [
     {
       id: 7,
-      name: 'تفويضاتي',
+      name: 'صلاحياتي',
       icon: <ServiceIcon type={2} />,
       description: 'عرض وإدارة جميع التفويضات الممنوحة لك',
+    },
+    {
+      id: 8,
+      name: 'طلب تفويض',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+        </svg>
+      ),
+      description: 'تقديم طلب تفويض جديد من جهة مانحة',
     },
     {
       id: 1,
@@ -125,8 +136,8 @@ const Services: React.FC<ServicesProps> = ({ onLogout, onServiceClick, loginMeth
   ];
 
   const services = loginMethod === 'nafath'
-    ? [allServices.find(s => s.id === 7)!, ...permissionServices]
-    : allServices.filter(s => s.id !== 7);
+    ? [allServices.find(s => s.id === 7)!, allServices.find(s => s.id === 8)!, ...permissionServices]
+    : allServices.filter(s => s.id !== 7 && s.id !== 8);
 
   return (
     <div className="services-page">

@@ -1,0 +1,45 @@
+<svg width="220" height="160" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Uniform dot grid -->
+    <pattern id="dotGrid" x="0" y="0" width="6.5" height="6.5" patternUnits="userSpaceOnUse">
+      <circle cx="3.25" cy="3.25" r="2.4" fill="#2E6B8A"/>
+    </pattern>
+    <!-- Saudi Arabia silhouette clip path -->
+    <clipPath id="saudiClip">
+      <path d="
+        M62,50
+        L72,42 L85,36 L100,33 L118,33 L132,37
+        L146,43 L158,52 L166,63 L170,74
+        L170,86 L165,97 L156,106
+        L146,113 L132,118 L115,121
+        L98,120 L82,115 L68,106
+        L55,95 L47,82 L46,70
+        L51,59 Z
+      "/>
+    </clipPath>
+  </defs>
+
+  <!-- Dot-filled Saudi Arabia shape -->
+  <rect x="0" y="0" width="220" height="130" fill="url(#dotGrid)" clipPath="url(#saudiClip)"/>
+
+  <!-- Arabic text -->
+  <text
+    x="110" y="143"
+    text-anchor="middle"
+    font-family="'Almarai', 'Arial', sans-serif"
+    font-weight="700"
+    font-size="16"
+    fill="#1a3a5c"
+    direction="rtl"
+  >اتحاد الغرف التجارية السعودية</text>
+
+  <!-- English text -->
+  <text
+    x="110" y="157"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-weight="400"
+    font-size="10"
+    fill="#2E6B8A"
+  >Federation Of Saudi Chambers of Commerce</text>
+</svg>
