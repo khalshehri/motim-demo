@@ -44,7 +44,7 @@ const NafathPageV2: React.FC<NafathPageV2Props> = ({ onBack, onSuccess }) => {
           <path d="M675.153 37.4088C675.494 37.4088 675.781 37.2922 676.007 37.0646C676.233 36.8371 676.349 36.5485 676.349 36.2044C676.349 35.8603 676.233 35.555 676.007 35.333C675.781 35.111 675.494 35 675.153 35C674.811 35 674.525 35.111 674.299 35.333C674.073 35.555 673.957 35.8436 673.957 36.2044C673.957 36.5651 674.073 36.8371 674.299 37.0646C674.525 37.2922 674.811 37.4088 675.153 37.4088Z" fill="#003235"/>
         </g>
         <rect x="461" y="16" width="149" height="64" rx="32" fill="white" fillOpacity="0.4"/>
-        <image href="/motim-demo/logos/SaudiChambersLogo.png" x="467" y="21" width="137" height="54" preserveAspectRatio="xMidYMid meet"/>
+        <image href="/motim-demo/logos/tujar-logo.png" x="467" y="21" width="137" height="54" preserveAspectRatio="xMidYMid meet"/>
         <defs>
           <filter id="filter0_d_23398_17036" x="0" y="27" width="76" height="44" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
             <feFlood floodOpacity="0" result="BackgroundImageFix"/>

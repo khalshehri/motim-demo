@@ -16,7 +16,7 @@ const MotimLogo: React.FC = () => (
 
 const ChamberLogo: React.FC = () => (
   <div className="org-logo org-logo--chamber">
-    <img src="/motim-demo/logos/SaudiChambersLogo.png" alt="اتحاد الغرف التجارية السعودية" />
+    <img src="/motim-demo/logos/tujar-logo.png" alt="منصة تجّار" />
   </div>
 );
 
